@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_test/core/utils/keys/global_key.dart';
-import 'package:flutter_app_test/features/favorite/pages/favorites_page.dart';
 import 'package:flutter_app_test/features/favorite/viewmodel/favorites_viewmodel.dart';
 import 'package:flutter_app_test/core/utils/route_manager/domain/router.dart' as router;
 import 'package:flutter_test/flutter_test.dart';
@@ -60,7 +59,7 @@ void main() {
       await tester.tap(find.text('Favorites'));
       await tester.pumpAndSettle();
 
-      expect(find.byType(FavoritesPage), findsOneWidget);
+      expect(find.text('No favorites added.'), findsOneWidget);
     });
   });
 }
