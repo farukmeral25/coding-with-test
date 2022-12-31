@@ -55,7 +55,6 @@ void main() {
     testWidgets('Testing Navigation', (tester) async {
       await tester.pumpWidget(createHomeScreen());
 
-      // Tap the Favorites button in the app bar
       await tester.tap(find.text('Favorites'));
       await tester.pumpAndSettle();
 
