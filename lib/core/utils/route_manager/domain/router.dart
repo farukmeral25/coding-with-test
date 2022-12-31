@@ -8,7 +8,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case homePageRoute:
       return CupertinoPageRoute(builder: (_) => const HomePage());
     case favoritePageRoute:
-      return CupertinoPageRoute(builder: (_) => const FavoritePage());
+      return CupertinoPageRoute(builder: (_) => const FavoritesPage());
     default:
       return CupertinoPageRoute(builder: (_) => const HomePage());
   }

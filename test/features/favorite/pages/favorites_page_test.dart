@@ -12,7 +12,7 @@ Widget createFavoritesScreen() => ChangeNotifierProvider<FavoritesViewModel>(
         return favoritesList;
       },
       child: const MaterialApp(
-        home: FavoritePage(),
+        home: FavoritesPage(),
       ),
     );
 

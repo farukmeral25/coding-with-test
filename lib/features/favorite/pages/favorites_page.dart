@@ -3,8 +3,8 @@ import 'package:flutter_app_test/features/favorite/pages/widgets/favorite_item_t
 import 'package:flutter_app_test/features/favorite/viewmodel/favorites_viewmodel.dart';
 import 'package:provider/provider.dart';
 
-class FavoritePage extends StatelessWidget {
-  const FavoritePage({Key? key}) : super(key: key);
+class FavoritesPage extends StatelessWidget {
+  const FavoritesPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

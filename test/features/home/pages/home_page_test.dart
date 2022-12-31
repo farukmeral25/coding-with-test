@@ -60,7 +60,7 @@ void main() {
       await tester.tap(find.text('Favorites'));
       await tester.pumpAndSettle();
 
-      expect(find.byType(FavoritePage), findsOneWidget);
+      expect(find.byType(FavoritesPage), findsOneWidget);
     });
   });
 }
