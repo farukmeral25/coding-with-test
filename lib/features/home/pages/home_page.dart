@@ -11,6 +11,13 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Testing Sample"),
+        leading: TextButton.icon(
+          style: TextButton.styleFrom(backgroundColor: Colors.white),
+          onPressed: () => Go.to.page(newsPageRoute),
+          icon: const Icon(Icons.newspaper),
+          label: const Text('News'),
+        ),
+        leadingWidth: 90,
         actions: [
           TextButton.icon(
             style: TextButton.styleFrom(backgroundColor: Colors.white),
