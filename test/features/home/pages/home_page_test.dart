@@ -2,11 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_test/core/utils/keys/global_key.dart';
 import 'package:flutter_app_test/features/favorite/viewmodel/favorites_viewmodel.dart';
 import 'package:flutter_app_test/core/utils/route_manager/domain/router.dart' as router;
+import 'package:flutter_app_test/features/news/data/service/news_service.dart';
+import 'package:flutter_app_test/features/news/viewmodel/news_viewmodel.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
 
-Widget createHomeScreen() => ChangeNotifierProvider<FavoritesViewModel>(
-      create: (_) => FavoritesViewModel(),
+Widget createHomeScreen() => MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => FavoritesViewModel(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => NewsViewModel(NewsService()),
+        ),
+      ],
       child: MaterialApp(
         onGenerateRoute: router.generateRoute,
         navigatorKey: GlobalContextKey.instance.globalKey,
@@ -52,13 +61,27 @@ void main() {
       expect(find.byIcon(Icons.favorite), findsNothing);
     });
 
-    testWidgets('Testing Navigation', (tester) async {
+    testWidgets('Testing Navigation Favorites', (tester) async {
       await tester.pumpWidget(createHomeScreen());
 
       await tester.tap(find.text('Favorites'));
       await tester.pumpAndSettle();
 
-      expect(find.text('No favorites added.'), findsOneWidget);
+      final itemFinder = find.text('No favorites added.');
+
+      expect(itemFinder, findsOneWidget);
+    });
+
+    testWidgets('Testing Navigation News', (tester) async {
+      await tester.pumpWidget(createHomeScreen());
+
+      await tester.tap(find.byIcon(Icons.newspaper));
+
+      await tester.pumpAndSettle();
+
+      final itemFinder = find.text('News');
+
+      expect(itemFinder, findsOneWidget);
     });
   });
 }
