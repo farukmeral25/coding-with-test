@@ -3,6 +3,7 @@ import 'package:flutter_app_test/core/utils/keys/global_key.dart';
 import 'package:flutter_app_test/features/article/pages/article_page.dart';
 import 'package:flutter_app_test/features/favorite/viewmodel/favorites_viewmodel.dart';
 import 'package:flutter_app_test/features/news/domain/entity/article.dart';
+import 'package:flutter_app_test/features/news/domain/service/i_news_service.dart';
 import 'package:flutter_app_test/features/news/pages/news_page.dart';
 import 'package:flutter_app_test/features/news/viewmodel/news_viewmodel.dart';
 import 'package:flutter_app_test/main.dart';
@@ -12,10 +13,10 @@ import 'package:integration_test/integration_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:provider/provider.dart';
 
-import '../test/features/news/viewmodel/news_viewmodel_test.dart';
+import '../test/features/news/service/mock_news_service.dart';
 
 void main() {
-  late MockNewsService mockNewsService;
+  late INewsService mockNewsService;
 
   setUp(() {
     mockNewsService = MockNewsService();

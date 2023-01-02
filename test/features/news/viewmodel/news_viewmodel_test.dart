@@ -4,11 +4,11 @@ import 'package:flutter_app_test/features/news/viewmodel/news_viewmodel.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-class MockNewsService extends Mock implements INewsService {}
+import '../service/mock_news_service.dart';
 
 void main() {
   late NewsViewModel newsViewModel;
-  late MockNewsService mockNewsService;
+  late INewsService mockNewsService;
 
   setUp(() {
     mockNewsService = MockNewsService();

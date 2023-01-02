@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_test/features/news/data/service/news_service.dart';
 import 'package:flutter_app_test/features/news/domain/entity/article.dart';
+import 'package:flutter_app_test/features/news/domain/service/i_news_service.dart';
 import 'package:flutter_app_test/features/news/pages/news_page.dart';
 import 'package:flutter_app_test/features/news/viewmodel/news_viewmodel.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:provider/provider.dart';
 
-class MockNewsService extends Mock implements NewsService {}
+import '../service/mock_news_service.dart';
 
 void main() {
-  late MockNewsService mockNewsService;
+  late INewsService mockNewsService;
 
   setUp(() {
     mockNewsService = MockNewsService();
